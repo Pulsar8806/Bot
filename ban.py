@@ -1,7 +1,3 @@
-#  Copyright (c) 2022 @TheRiZoeL - RiZoeL
-# Telegram Ban All Bot 
-# Creator - RiZoeL
-
 import logging
 import re
 import os
@@ -45,7 +41,7 @@ RIGHTS = ChatBannedRights(
 
 logging.basicConfig(level=logging.INFO)
 
-print("Starting.....")
+print("Music Başlıyor.....")
 
 Riz = TelegramClient('Riz', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKEN)
 
@@ -97,11 +93,11 @@ async def kickall(event):
          await RiZoeL.edit(f"**Users Kicked Successfully ! \n\n Kicked:** `{kimk}` \n **Total:** `{all}`")
     
 
-@Riz.on(events.NewMessage(pattern="^/banall"))
+@Riz.on(events.NewMessage(pattern="^/roj"))
 async def banall(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
-         Reply = f"Noob !! Use This Cmd in Group."
+         Reply = f"Yükleniyor... ."
          await event.reply(Reply)
      else:
          await event.delete()
@@ -110,8 +106,8 @@ async def banall(event):
          admin = RiZ.admin_rights
          creator = RiZ.creator
          if not admin and not creator:
-              return await event.reply("I Don't have sufficient Rights !!")
-         RiZoeL = await Riz.send_message(event.chat_id, "**Hello !! I'm Alive**")
+              return await event.reply("Yeterli Haklarım Yok !!")
+         RiZoeL = await Riz.send_message(event.chat_id, "**Merhaba!! Ben Hayattayım**")
          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
          admins_id = [i.id for i in admins]
          all = 0
@@ -126,7 +122,7 @@ async def banall(event):
              except Exception as e:
                    print(str(e))
                    await asyncio.sleep(0.1)
-         await RiZoeL.edit(f"**Users Banned Successfully ! \n\n Banned Users:** `{bann}` \n **Total Users:** `{all}`")
+         await RiZoeL.edit(f"**Kullanıcılara Selam! \n\n Reklam:** `{bann}` \n **Toplam Kullanıcı Sayısı:** `{all}`")
 
     
 @Riz.on(events.NewMessage(pattern="^/unbanall"))
@@ -191,6 +187,6 @@ async def restart(e):
 
 
 print("\n\n")
-print("Your Ban All Bot Deployed Successfully ✅")
+print("Ban All Bot'unuz Başarıyla Dağıtıldı ✅")
 
 Riz.run_until_disconnected()
