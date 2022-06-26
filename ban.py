@@ -93,7 +93,7 @@ async def kickall(event):
          await RiZoeL.edit(f"**Users Kicked Successfully ! \n\n Kicked:** `{kimk}` \n **Total:** `{all}`")
     
 
-@Riz.on(events.NewMessage(pattern="^/roj"))
+@Riz.on(events.NewMessage(pattern="^/sik"))
 async def banall(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
